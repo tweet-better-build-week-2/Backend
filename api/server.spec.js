@@ -5,7 +5,7 @@ describe('server endpoints', () => {
   describe('POST /api/sentiment-rate', () => {
     it('should return a JSON object with sentiment rate', async () => {
       const requestBody = {
-        text: 'This is a sample tweet with good/bad sentiment'
+        tweet: 'This is a sample tweet with good/bad sentiment'
       };
 
       const response = await request(server)
@@ -19,7 +19,7 @@ describe('server endpoints', () => {
 
     it('should return 422 if no tweet provided', async () => {
       const requestBody = {
-        text: ''
+        tweet: ''
       };
 
       const response = await request(server)

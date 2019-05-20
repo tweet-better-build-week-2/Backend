@@ -1,7 +1,9 @@
 const express = require('express');
 const sentimentRateRoute = express.Router();
 
-sentimentRateRoute.post('/', async (request, response) => {
+const verifyTweetBody = require('../middlewares/verifyTweetBody');
+
+sentimentRateRoute.post('/', verifyTweetBody, async (request, response) => {
   const tweet = request.body;
   try {
     const sentimentRate = {
